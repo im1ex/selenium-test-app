@@ -6,22 +6,25 @@ using OpenQA.Selenium.Chrome;
 
 Console.WriteLine("Hello, World!");
 
-var service = ChromeDriverService.CreateDefaultService();
+//var service = ChromeDriverService.CreateDefaultService();
 
-service.Start();
+//service.Start();
 
-var driverServiceProcess = (Process) typeof(DriverService).GetField("driverServiceProcess", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(service);
+//var driverServiceProcess = (Process) typeof(DriverService).GetField("driverServiceProcess", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(service);
 
-Console.WriteLine(driverServiceProcess.StartInfo.FileName);
+//Console.WriteLine(driverServiceProcess.StartInfo.FileName);
 
 //var options = new ChromeOptions();
 //var driver = new ChromeDriver(service, options);
 
-//driver.Navigate().GoToUrl("https://www.selenium.dev/selenium/web/web-form.html");
-
-service.Dispose();
+var driver = new ChromeDriver();
+driver.Navigate().GoToUrl("https://www.selenium.dev/selenium/web/web-form.html");
 
 Console.WriteLine("Press any key to exit...");
 Console.ReadKey(true);
+
+driver.Dispose();
+
+//service.Dispose();
 
 Console.WriteLine("Bye, World!");
