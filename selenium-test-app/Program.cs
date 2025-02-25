@@ -17,7 +17,9 @@ Console.WriteLine("Hello, World!");
 //var options = new ChromeOptions();
 //var driver = new ChromeDriver(service, options);
 
-var driver = new ChromeDriver();
+var options = new ChromeOptions();
+options.AddArgument("--headless");
+var driver = new ChromeDriver(options);
 driver.Navigate().GoToUrl("https://www.selenium.dev/selenium/web/web-form.html");
 
 Console.WriteLine("Press any key to exit...");
